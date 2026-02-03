@@ -16,12 +16,14 @@ const nextConfig: NextConfig = {
         hostname: '**.wordpress.com',
       },
       {
-        // Add your WordPress domain here
-        // Replace with your actual WordPress domain
+        // Your WordPress CMS domain
         protocol: 'https',
-        hostname: process.env.NEXT_PUBLIC_WORDPRESS_URL
-          ? new URL(process.env.NEXT_PUBLIC_WORDPRESS_URL).hostname
-          : 'localhost',
+        hostname: 'cms.msrbuilds.com',
+      },
+      {
+        // Wildcard for msrbuilds subdomains
+        protocol: 'https',
+        hostname: '**.msrbuilds.com',
       },
       {
         // For local development
