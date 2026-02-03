@@ -1,0 +1,27 @@
+# Docker Compose for local testing
+# Not required for Dokploy deployment
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - NEXT_PUBLIC_WORDPRESS_URL=${NEXT_PUBLIC_WORDPRESS_URL}
+        - NEXT_PUBLIC_GRAPHQL_URL=${NEXT_PUBLIC_GRAPHQL_URL}
+        - NEXT_PUBLIC_SITE_URL=${NEXT_PUBLIC_SITE_URL}
+        - WC_CONSUMER_KEY=${WC_CONSUMER_KEY}
+        - WC_CONSUMER_SECRET=${WC_CONSUMER_SECRET}
+        - JWT_AUTH_SECRET_KEY=${JWT_AUTH_SECRET_KEY}
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_WORDPRESS_URL=${NEXT_PUBLIC_WORDPRESS_URL}
+      - NEXT_PUBLIC_GRAPHQL_URL=${NEXT_PUBLIC_GRAPHQL_URL}
+      - NEXT_PUBLIC_SITE_URL=${NEXT_PUBLIC_SITE_URL}
+      - WC_CONSUMER_KEY=${WC_CONSUMER_KEY}
+      - WC_CONSUMER_SECRET=${WC_CONSUMER_SECRET}
+      - JWT_AUTH_SECRET_KEY=${JWT_AUTH_SECRET_KEY}
+    restart: unless-stopped

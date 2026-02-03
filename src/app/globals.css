@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 :root {
   --background: #ffffff;
@@ -8,19 +9,389 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-heading), ui-sans-serif, system-ui, sans-serif;
+  --font-accent: var(--font-heading), ui-sans-serif, system-ui, sans-serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a1a1a1;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar for mobile menu */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Focus styles */
+*:focus-visible {
+  outline: 2px solid black;
+  outline-offset: 2px;
+}
+
+/* Line clamp utilities */
+.line-clamp-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Aspect ratio for product images */
+.aspect-product {
+  aspect-ratio: 3 / 4;
+}
+
+/* Animation for page transitions */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* =============================================
+   WordPress Content Styles
+   ============================================= */
+
+/* Base prose customization for WordPress content */
+.wp-content {
+  @apply prose prose-gray max-w-none;
+
+  /* Headings */
+  & h1 {
+    @apply font-heading text-3xl font-normal tracking-tight mt-12 mb-6 first:mt-0;
+  }
+
+  & h2 {
+    @apply font-heading text-2xl font-normal tracking-tight mt-10 mb-4 pb-2 border-b border-gray-200;
+  }
+
+  & h3 {
+    @apply font-heading text-xl font-medium mt-8 mb-3;
+  }
+
+  & h4 {
+    @apply font-heading text-lg font-medium mt-6 mb-2;
+  }
+
+  & h5, & h6 {
+    @apply font-heading text-base font-medium mt-4 mb-2;
+  }
+
+  /* Paragraphs */
+  & p {
+    @apply text-gray-700 leading-relaxed mb-4;
+  }
+
+  /* Links */
+  & a {
+    @apply text-black underline underline-offset-4 decoration-gray-300 transition-colors;
+
+    &:hover {
+      @apply decoration-black;
+    }
+  }
+
+  /* Lists */
+  & ul {
+    @apply list-disc pl-6 mb-4 space-y-2;
+  }
+
+  & ol {
+    @apply list-decimal pl-6 mb-4 space-y-2;
+  }
+
+  & li {
+    @apply text-gray-700;
+
+    & > ul, & > ol {
+      @apply mt-2 mb-0;
+    }
+  }
+
+  /* Blockquotes */
+  & blockquote {
+    @apply border-l-4 border-black pl-6 py-2 my-6 italic bg-gray-50;
+
+    & p {
+      @apply mb-0;
+    }
+  }
+
+  /* Code */
+  & code {
+    @apply bg-gray-100 px-1.5 py-0.5 rounded text-sm font-mono text-gray-800;
+  }
+
+  & pre {
+    @apply bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto my-6;
+
+    & code {
+      @apply bg-transparent p-0 text-inherit;
+    }
+  }
+
+  /* Tables */
+  & table {
+    @apply w-full border-collapse my-6;
+  }
+
+  & th {
+    @apply bg-gray-100 border border-gray-200 px-4 py-3 text-left font-medium text-sm uppercase tracking-wider;
+  }
+
+  & td {
+    @apply border border-gray-200 px-4 py-3 text-gray-700;
+  }
+
+  & tr:nth-child(even) td {
+    @apply bg-gray-50;
+  }
+
+  /* Images */
+  & img {
+    @apply rounded-lg my-6 mx-auto;
+  }
+
+  & figure {
+    @apply my-8;
+
+    & img {
+      @apply my-0;
+    }
+
+    & figcaption {
+      @apply text-center text-sm text-gray-500 mt-3;
+    }
+  }
+
+  /* Horizontal rule */
+  & hr {
+    @apply border-0 border-t border-gray-200 my-8;
+  }
+
+  /* Definition lists */
+  & dl {
+    @apply my-4;
+  }
+
+  & dt {
+    @apply font-medium text-gray-900 mt-4;
+  }
+
+  & dd {
+    @apply ml-4 text-gray-700;
+  }
+
+  /* Strong and emphasis */
+  & strong {
+    @apply font-semibold text-gray-900;
+  }
+
+  & em {
+    @apply italic;
+  }
+
+  /* WordPress specific blocks */
+
+  /* Buttons (WP Block) */
+  & .wp-block-button {
+    @apply my-4;
+
+    & .wp-block-button__link {
+      @apply inline-block bg-black text-white px-6 py-3 no-underline font-medium transition-colors;
+
+      &:hover {
+        @apply bg-gray-800;
+      }
+    }
+  }
+
+  /* Columns (WP Block) */
+  & .wp-block-columns {
+    @apply flex flex-wrap gap-6 my-6;
+
+    & .wp-block-column {
+      @apply flex-1 min-w-[250px];
+    }
+  }
+
+  /* Cover block */
+  & .wp-block-cover {
+    @apply relative min-h-[300px] flex items-center justify-center my-8 rounded-lg overflow-hidden;
+
+    & .wp-block-cover__inner-container {
+      @apply relative z-10 text-white text-center p-8;
+    }
+  }
+
+  /* Gallery */
+  & .wp-block-gallery {
+    @apply grid grid-cols-2 md:grid-cols-3 gap-4 my-6;
+
+    & figure {
+      @apply m-0;
+    }
+
+    & img {
+      @apply m-0 w-full h-48 object-cover;
+    }
+  }
+
+  /* Separator */
+  & .wp-block-separator {
+    @apply border-0 border-t-2 border-gray-300 my-10 w-24 mx-auto;
+
+    &.is-style-wide {
+      @apply w-full;
+    }
+
+    &.is-style-dots {
+      @apply border-0 text-center;
+
+      &::before {
+        content: "···";
+        @apply text-2xl text-gray-400 tracking-[1em];
+      }
+    }
+  }
+
+  /* Quote */
+  & .wp-block-quote {
+    @apply border-l-4 border-black pl-6 my-8;
+
+    & cite {
+      @apply block mt-4 text-sm text-gray-500 not-italic;
+
+      &::before {
+        content: "— ";
+      }
+    }
+  }
+
+  /* Pullquote */
+  & .wp-block-pullquote {
+    @apply border-t-4 border-b-4 border-black py-8 my-10 text-center;
+
+    & blockquote {
+      @apply border-0 p-0 bg-transparent font-accent;
+    }
+
+    & p {
+      @apply text-2xl font-light italic;
+    }
+
+    & cite {
+      @apply text-sm text-gray-500 mt-4 block font-sans not-italic;
+    }
+  }
+
+  /* File block */
+  & .wp-block-file {
+    @apply flex items-center gap-4 p-4 bg-gray-50 rounded my-4;
+
+    & a:first-child {
+      @apply flex-1;
+    }
+
+    & .wp-block-file__button {
+      @apply bg-black text-white px-4 py-2 text-sm no-underline;
+
+      &:hover {
+        @apply bg-gray-800;
+      }
+    }
+  }
+
+  /* Video/Audio */
+  & .wp-block-video, & .wp-block-audio {
+    @apply my-6;
+
+    & video, & audio {
+      @apply w-full;
+    }
+  }
+
+  /* Embed blocks (YouTube, etc.) */
+  & .wp-block-embed {
+    @apply my-8;
+
+    & .wp-block-embed__wrapper {
+      @apply relative pb-[56.25%] h-0;
+
+      & iframe {
+        @apply absolute top-0 left-0 w-full h-full rounded-lg;
+      }
+    }
+  }
+}
+
+/* Page-specific styles */
+.page-content {
+  /* First paragraph - larger intro text */
+  & > p:first-of-type {
+    @apply text-lg text-gray-600 leading-relaxed;
+  }
+}
+
+/* Policy/Legal page styles */
+.legal-content {
+  & h2 {
+    @apply text-lg font-semibold mt-8 mb-3 uppercase tracking-wide;
+  }
+
+  & h3 {
+    @apply text-base font-semibold mt-6 mb-2;
+  }
 }
