@@ -6,7 +6,9 @@
       "Bash(npm install:*)",
       "Bash(npm run build:*)",
       "Bash(curl:*)",
-      "Bash(ls -la \"f:\\\\Vibe Coding Sessions\\\\Project 02\\\\headless-wp-frontend\\\\src\\\\app\\\\api\\\\auth\"\" && ls -la \"f:Vibe Coding SessionsProject 02headless-wp-frontendsrcappapiaccount\"\")"
+      "Bash(ls -la \"f:\\\\Vibe Coding Sessions\\\\Project 02\\\\headless-wp-frontend\\\\src\\\\app\\\\api\\\\auth\"\" && ls -la \"f:Vibe Coding SessionsProject 02headless-wp-frontendsrcappapiaccount\"\")",
+      "Bash(npx tsc:*)",
+      "Bash(npm run lint:*)"
     ]
   }
 }

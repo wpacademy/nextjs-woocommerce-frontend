@@ -8,6 +8,7 @@ import { useCartStore, useCartItemCount } from '@/stores/cart-store';
 import { useUIStore } from '@/stores/ui-store';
 import { useIsAuthenticated, useUser } from '@/stores/auth-store';
 import { cn } from '@/lib/utils';
+import { Search } from './search';
 
 const navigation = [
   { name: 'New offers', href: '/shop/new-in' },
@@ -126,38 +127,8 @@ export function Header() {
         </div>
       </nav>
 
-      {/* Search Bar */}
-      <AnimatePresence>
-        {isSearchOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="border-b border-gray-200 overflow-hidden"
-          >
-            <div className="mx-auto max-w-7xl px-4 py-4 lg:px-8">
-              <div className="relative">
-                <input
-                  type="search"
-                  placeholder="Search products..."
-                  className="w-full border-b border-gray-300 bg-transparent py-2 pr-10 text-sm focus:border-black focus:outline-none"
-                  autoFocus
-                />
-                <svg
-                  className="absolute right-0 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-                </svg>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Search Bar with AJAX */}
+      <Search isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
 
       {/* Mobile/Sidebar Menu */}
       <AnimatePresence>
