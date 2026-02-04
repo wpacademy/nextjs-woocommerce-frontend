@@ -7,6 +7,11 @@ A modern, high-performance headless e-commerce storefront built with **Next.js 1
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-v4-06B6D4?logo=tailwindcss)
 
+![GitHub stars](https://img.shields.io/github/stars/wpacademy/nextjs-woocommerce-frontend?style=social)
+![GitHub forks](https://img.shields.io/github/forks/wpacademy/nextjs-woocommerce-frontend?style=social)
+![GitHub watchers](https://img.shields.io/github/watchers/wpacademy/nextjs-woocommerce-frontend?style=social)
+![GitHub license](https://img.shields.io/github/license/wpacademy/nextjs-woocommerce-frontend)
+
 <img width="1920" height="1080" alt="preview" src="https://github.com/user-attachments/assets/26009a55-84aa-4a17-9f45-164299fc1f4a" />
 
 **[Live Demo](https://nextjswoo.msrbuilds.com/)**
