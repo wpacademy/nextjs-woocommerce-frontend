@@ -47,8 +47,8 @@ Before you begin, ensure you have:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/headless-wp-frontend.git
-cd headless-wp-frontend
+git clone https://github.com/wpacademy/nextjs-woocommerce-frontend.git
+cd nextjs-woocommerce-frontend
 ```
 
 ### 2. Install Dependencies
@@ -181,7 +181,7 @@ The easiest way to deploy this Next.js app:
    - Ensure `NEXT_PUBLIC_SITE_URL` points to your Vercel domain
 6. Click **Deploy**
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/yourusername/headless-wp-frontend)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/wpacademy/nextjs-woocommerce-frontend)
 
 **Vercel Environment Variables:**
 
@@ -208,7 +208,7 @@ NEXT_PUBLIC_SITE_URL=https://your-app.vercel.app
    - Go to **Plugins** > Search "Next.js" > Install **@netlify/plugin-nextjs**
 8. Click **Deploy site**
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/yourusername/headless-wp-frontend)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/wpacademy/nextjs-woocommerce-frontend)
 
 **Netlify Configuration (`netlify.toml`):**
 
