@@ -14,7 +14,7 @@ A modern, high-performance headless e-commerce storefront built with **Next.js 1
 
 <img width="1920" height="1080" alt="preview" src="https://github.com/user-attachments/assets/26009a55-84aa-4a17-9f45-164299fc1f4a" />
 
-**[Live Demo](https://nextjswoo.msrbuilds.com/)**
+**[Live Demo](https://nextjs-woocommerce-frontend-ochre.vercel.app/)**
 
 ## Features
 
