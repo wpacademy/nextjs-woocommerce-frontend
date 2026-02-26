@@ -26,6 +26,11 @@ const nextConfig: NextConfig = {
         hostname: '**.msrbuilds.com',
       },
       {
+        // ZipWP staging domains
+        protocol: 'https',
+        hostname: '**.zipwp.top',
+      },
+      {
         // For local development
         protocol: 'http',
         hostname: 'localhost',
